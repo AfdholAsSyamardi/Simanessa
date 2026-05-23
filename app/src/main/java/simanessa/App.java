@@ -3,62 +3,12 @@
  */
 package simanessa;
 
-import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
+public class App {
+    public String getGreeting() {
+        return "Halo dunia";
+    }
 
-public class App extends Application{ 
-    public void start(Stage Stage){ 
-        Stage.setTitle("My Kisah"); 
-
-        ObservableList<Student> students = FXCollections.observableArrayList();
-        students.add(new Student("Alfa", "H0752"));
-        students.add(new Student("B..", "H0753"));
-
-        Button button = new Button("OK");
-        Label label = new Label("Username");
-        Label label2 = new Label("NIM");
-        TextField textField = new TextField();
-        TextField textField2 = new TextField();
-        Label label3 = new Label();
-        Button button2 = new Button("Balik");
-
-        
-
-        GridPane root = new GridPane();
-        root.add(label, 0, 0);
-        root.add(textField, 0, 1);
-        root.add(label2, 1, 0);
-        root.add(textField2, 1, 1);
-        root.add(button, 0, 2);
-
-        GridPane root2 = new GridPane();
-        root2.add(label3, 0, 0);
-        root2.add(button2, 0, 1);
-
-
-        Scene scene = new Scene(root, 300, 250);
-        Scene scene2 = new Scene(root2, 400, 250);
-
-        button2.setOnAction(e -> {
-            Stage.setScene(scene);
-        });
-
-        button.setOnAction(e -> {
-            Stage.setScene(scene2);
-            String username = textField.getText();
-            String nim = textField2.getText();
-            label3.setText("Wassup! " + username + " " + nim);
-        });
-
-        Stage.setScene(scene);
- 
-        Stage.show(); 
-    } 
-} 
+    public static void main(String[] args) {
+        System.out.println(new App().getGreeting());
+    }
+}
