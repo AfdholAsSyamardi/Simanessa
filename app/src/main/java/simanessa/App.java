@@ -5,8 +5,10 @@ package simanessa;
 
 public class App {
     public String getGreeting() {
-        return "Halo ganjar";
+        return " hanakdahfoiajkfn Halo Anies Baswedan, selamat datang di dunia Java!";
     }
+
+
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
