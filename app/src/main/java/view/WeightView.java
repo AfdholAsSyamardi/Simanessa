@@ -12,22 +12,13 @@ import javafx.stage.Stage;
 import model.WeightConfig;
 
 public class WeightView {
-
     public static void showWindow() {
+        Stage stage = new Stage();
 
-        Stage stage =
-                new Stage();
+        VBox root = new VBox(15);
 
-        // Jarak antar elemen diperlebar agar tidak sesak
-        VBox root =
-                new VBox(15);
+        root.setPadding(new Insets(30));
 
-        // Padding (ruang kosong di pinggir) diperbesar
-        root.setPadding(
-                new Insets(30)
-        );
-
-        // Background Dark Mode SIMANESSA
         root.setStyle(
                 "-fx-background-color: #0f172a;"
         );

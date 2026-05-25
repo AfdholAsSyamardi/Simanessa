@@ -7,13 +7,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.User;
-
 import view.DashboardView;
 import view.LoginView;
 import view.SplashScreen;
 
 public class Main extends Application {
-
     private Stage primaryStage;
 
     @Override

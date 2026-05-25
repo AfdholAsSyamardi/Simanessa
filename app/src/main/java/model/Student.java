@@ -4,57 +4,27 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Student implements Serializable {
-
     private String nis;
-
     private String nama;
-
     private String kelas;
-
     private double uts;
-
     private double uas;
-
     private ArrayList<Double> tugasList;
-
     private double nilaiAkhir;
-
     private String status;
 
-    public Student(
-
-            String nis,
-            String nama,
-            String kelas,
-
-            double uts,
-            double uas,
-
-            ArrayList<Double> tugasList,
-
-            double nilaiAkhir
-    ) {
-
+    public Student(String nis, String nama, String kelas, double uts, double uas, ArrayList<Double> tugasList, double nilaiAkhir) {
         this.nis = nis;
-
         this.nama = nama;
-
         this.kelas = kelas;
-
         this.uts = uts;
-
         this.uas = uas;
-
         this.tugasList = tugasList;
-
         this.nilaiAkhir = nilaiAkhir;
 
         if (nilaiAkhir >= 75) {
-
             status = "Lulus";
-
         } else {
-
             status = "Tidak Lulus";
         }
     }
@@ -93,17 +63,11 @@ public class Student implements Serializable {
 
     // SETTER BARU
 
-    public void setNilaiAkhir(
-            double nilaiAkhir
-    ) {
-
+    public void setNilaiAkhir(double nilaiAkhir) {
         this.nilaiAkhir = nilaiAkhir;
     }
 
-    public void setStatus(
-            String status
-    ) {
-
+    public void setStatus(String status) {
         this.status = status;
     }
 }

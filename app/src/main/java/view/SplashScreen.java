@@ -11,13 +11,10 @@ import javafx.stage.Stage;
 public class SplashScreen {
 
     public static void show(Stage stage) {
-
         VBox root = new VBox(25); 
         root.setAlignment(Pos.CENTER);
 
-        root.setStyle(
-                "-fx-background-color: #FFFFFF;"
-        );
+        root.setStyle("-fx-background-color: #FFFFFF;");
         // LOGO SIMANESSA 
         try {
             Image img = new Image(SplashScreen.class.getResource("/images/Logo.jpg").toExternalForm());
@@ -46,13 +43,8 @@ public class SplashScreen {
                         + "-fx-font-style: italic;"
         );
 
-        root.getChildren().addAll(
-                logoText,
-                loading
-        );
+        root.getChildren().addAll(logoText, loading);
         
-        // PERBAIKAN: HANYA MENGGUNAKAN ROOT TANPA UKURAN MANUAL
-       
         Scene scene = new Scene(root);
 
         stage.setScene(scene);

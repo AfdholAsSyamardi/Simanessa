@@ -14,64 +14,42 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import model.Student;
 import model.User;
-
 import java.util.ArrayList;
 
 public class DashboardView {
 
-    private BorderPane root =
-            new BorderPane();
+    private BorderPane root = new BorderPane();
 
-    private StudentManager manager =
-            new StudentManager();
+    private StudentManager manager = new StudentManager();
 
-    private ObservableList<Student> data =
-            FXCollections.observableArrayList();
+    private ObservableList<Student> data = FXCollections.observableArrayList();
 
-    private VBox tugasBox =
-            new VBox(10);
+    private VBox tugasBox = new VBox(10);
 
-    private ArrayList<TextField> tugasFields =
-            new ArrayList<>();
+    private ArrayList<TextField> tugasFields = new ArrayList<>();
 
-    private Label totalLabel =
-            new Label("0");
+    private Label totalLabel = new Label("0");
 
-    private Label lulusLabel =
-            new Label("0");
+    private Label lulusLabel = new Label("0");
 
-    private Label gagalLabel =
-            new Label("0");
+    private Label gagalLabel = new Label("0");
 
-    private Label rataLabel =
-            new Label("0");
+    private Label rataLabel = new Label("0");
 
     private ScrollPane scrollPane;
 
     private Main app; 
 
     public DashboardView(Stage primaryStage, User user, Main app) {
-
         this.app = app;
 
-        root.setStyle(
-                "-fx-background-color: #0f172a;"
-        );
+        root.setStyle("-fx-background-color: #0f172a;");
 
-        data.addAll(
-                manager.getStudents()
-        );
+        data.addAll(manager.getStudents());
 
-        // =========================
-        // SIDEBAR (DARK SLATE HARMONIS)
-        // =========================
+        VBox sidebar = new VBox(15); 
 
-        VBox sidebar =
-                new VBox(15); 
-
-        sidebar.setPadding(
-                new Insets(20)
-        );
+        sidebar.setPadding(new Insets(20));
 
         sidebar.setPrefWidth(260); 
 
@@ -81,9 +59,6 @@ public class DashboardView {
                 "-fx-border-width: 0 1.5 0 0;"
         );
 
-        // =========================
-        // LOGO DAN JUDUL SIDEBAR
-        // =========================
         VBox logoBox = new VBox(10);
         logoBox.setAlignment(Pos.CENTER); 
 
@@ -98,8 +73,7 @@ public class DashboardView {
             System.out.println("Logo tidak ditemukan, pastikan path /images/Logo.jpg benar.");
         }
 
-        Label logoText =
-                new Label("SIMANESSA");
+        Label logoText = new Label("SIMANESSA");
 
         logoText.setStyle(
                 "-fx-text-fill: #FFFFFF;" + 
@@ -108,9 +82,6 @@ public class DashboardView {
         );
         logoBox.getChildren().add(logoText);
 
-        // =========================
-        // ROLE USER
-        // =========================
         VBox roleBox = new VBox();
         roleBox.setAlignment(Pos.CENTER_LEFT);
         
@@ -123,9 +94,6 @@ public class DashboardView {
         roleBox.getChildren().add(roleLabel);
         VBox.setMargin(roleBox, new Insets(15, 0, 20, 0));
 
-        // =========================
-        // TOMBOL NAVIGASI
-        // =========================
         Button dashboardBtn =
                 createSidebarBoxButton("🏠 Dashboard");
 
@@ -135,9 +103,6 @@ public class DashboardView {
         Region spacer = new Region();
         VBox.setVgrow(spacer, Priority.ALWAYS);
 
-        // =========================
-        // TOMBOL LOGOUT
-        // =========================
         Button logoutBtn = new Button("🚪 Logout");
         logoutBtn.setMaxWidth(Double.MAX_VALUE);
         logoutBtn.setPadding(new Insets(12, 15, 12, 15));
@@ -172,31 +137,15 @@ public class DashboardView {
 
         root.setLeft(sidebar);
 
-        // =========================
-        // CONTENT ASLI 100%
-        // =========================
+        VBox content = new VBox(25);
 
-        VBox content =
-                new VBox(25);
+        content.setPadding(new Insets(25));
 
-        content.setPadding(
-                new Insets(25)
-        );
+        Label title = new Label("Dashboard Penilaian");
 
-        Label title =
-                new Label(
-                        "Dashboard Penilaian"
-                );
+        title.setStyle("-fx-text-fill: white;" + "-fx-font-size: 36px;" + "-fx-font-weight: bold;");
 
-        title.setStyle(
-                "-fx-text-fill: white;" +
-                        "-fx-font-size: 36px;" +
-                        "-fx-font-weight: bold;"
-        );
-
-        // CARDS
-        HBox cards =
-                new HBox(20);
+        HBox cards = new HBox(20);
 
         cards.getChildren().addAll(
                 createCard("Total Siswa", totalLabel),
@@ -205,18 +154,11 @@ public class DashboardView {
                 createCard("Rata-rata", rataLabel)
         );
 
-        // FORM
-        VBox form =
-                new VBox(15);
+        VBox form = new VBox(15);
 
-        form.setPadding(
-                new Insets(20)
-        );
+        form.setPadding(new Insets(20));
 
-        form.setStyle(
-                "-fx-background-color: #1e293b;" +
-                        "-fx-background-radius: 20;"
-        );
+        form.setStyle("-fx-background-color: #1e293b;" + "-fx-background-radius: 20;");
 
         TextField nisField = createField("NIS");
         TextField namaField = createField("Nama");
@@ -224,7 +166,6 @@ public class DashboardView {
         TextField utsField = createField("Nilai UTS");
         TextField uasField = createField("Nilai UAS");
 
-        // BUTTON TAMBAH TUGAS
         Button tambahTugasBtn = new Button("+ Tambah Tugas");
         tambahTugasBtn.setStyle(mainButton());
         tambahTugasBtn.setMaxWidth(Double.MAX_VALUE);
@@ -234,7 +175,6 @@ public class DashboardView {
             tugasBox.getChildren().add(tugasField);
         });
 
-        // BUTTON TAMBAH SISWA
         Button tambahBtn = new Button("Tambah Siswa");
         tambahBtn.setStyle(mainButton());
         tambahBtn.setMaxWidth(Double.MAX_VALUE);
@@ -299,7 +239,6 @@ public class DashboardView {
             }
         });
 
-        // BUTTON BOBOT
         Button bobotBtn = new Button("⚙ Atur Bobot");
         bobotBtn.setStyle(mainButton());
         bobotBtn.setMaxWidth(Double.MAX_VALUE);
@@ -309,7 +248,6 @@ public class DashboardView {
             refreshStats();
         });
 
-        // BUTTON PDF
         Button pdfBtn = new Button("📄 Export PDF");
         pdfBtn.setStyle(mainButton());
         pdfBtn.setMaxWidth(Double.MAX_VALUE);
@@ -334,7 +272,6 @@ public class DashboardView {
 
         root.setCenter(scrollPane);
 
-        // BUTTON ACTION NAVIGASI
         dashboardBtn.setOnAction(event -> {
             manager.loadData();
             refreshStats();
