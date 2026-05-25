@@ -10,6 +10,10 @@ public class WeightConfig {
 
     public static boolean isValid() {
 
-        return (utsWeight + uasWeight + tugasWeight) == 100;
+        return
+                (utsWeight
+                        + uasWeight
+                        + tugasWeight)
+                        == 100;
     }
 }

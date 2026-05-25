@@ -18,7 +18,6 @@ public class EditStudentView {
     // ATTRIBUTE
     // =========================
 
-    
     private VBox root =
             new VBox(20);
 

@@ -6,11 +6,15 @@ import java.sql.Statement;
 
 public class DatabaseHelper {
 
-    private static final String URL = "jdbc:sqlite:database/students.db";
+    private static final String URL =
+            "jdbc:sqlite:database/students.db";
 
     static {
+
         try {
-            File folder = new File("database");
+
+            File folder =
+                    new File("database");
 
             if (!folder.exists()) {
                 folder.mkdir();
@@ -24,7 +28,9 @@ public class DatabaseHelper {
     public static Connection connect() {
 
         try {
+
             return DriverManager.getConnection(URL);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -34,7 +40,8 @@ public class DatabaseHelper {
 
     public static void createTable() {
 
-        String sql = "CREATE TABLE IF NOT EXISTS students ("
+        String sql =
+                "CREATE TABLE IF NOT EXISTS students ("
                         + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
                         + "nis TEXT UNIQUE,"
                         + "nama TEXT UNIQUE,"
@@ -45,10 +52,16 @@ public class DatabaseHelper {
                         + "nilaiAkhir REAL)";
 
         try (
+
                 Connection conn = connect();
-                Statement stmt = conn.createStatement()
+
+                Statement stmt =
+                        conn.createStatement()
+
         ) {
+
             stmt.execute(sql);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
