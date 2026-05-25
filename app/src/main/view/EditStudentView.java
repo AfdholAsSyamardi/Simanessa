@@ -373,7 +373,6 @@ public class EditStudentView {
 
                 
                 // UPDATE STUDENT
-                
 
                 Student updated =
                         new Student(
