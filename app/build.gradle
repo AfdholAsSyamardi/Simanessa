@@ -37,7 +37,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'simanessa.App'
+    mainClass = 'app.Main'
 }
 
 javafx{
