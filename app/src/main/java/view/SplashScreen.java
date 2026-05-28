@@ -38,7 +38,7 @@ public class SplashScreen {
                         + "-fx-font-weight: bold;"
         );
 
-        Label loading = new Label("Sistem Manajemen Nilai Evaluasi Siswa Secara Akurat");
+        Label loading = new Label("Sistem Manajemen Nilai Evaluasi Siswa");
 
         loading.setStyle(
                 "-fx-text-fill: #4B5563;" 
